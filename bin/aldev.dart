@@ -1,3 +1,4 @@
+import 'generators/bloc_generator.dart';
 import 'generators/cubit_generator.dart';
 import 'generators/domain_generator.dart';
 import 'generators/feature_generator.dart';
@@ -15,6 +16,9 @@ void main(List<String> arguments) {
       break;
     case 'cubit':
       CubitGenerator.generate(value);
+      break;
+    case 'bloc':
+      BlocGenerator.generate(value);
       break;
     default:
       print('$command: command not found');

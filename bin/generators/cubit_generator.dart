@@ -7,11 +7,11 @@ class CubitGenerator {
   static generate(String value) async {
     String moduleName = value.split('/')[0];
 
-    var blocDir = Directory('./lib/presentation/bloc/${moduleName}_cubit');
+    var cubitDir = Directory('./lib/presentation/bloc/${moduleName}_cubit');
 
-    blocDir.createSync(recursive: true);
+    cubitDir.createSync(recursive: true);
 
-    cubitTemplate(moduleName, blocDir);
-    stateTemplate(moduleName, blocDir);
+    cubitTemplate(moduleName, cubitDir);
+    stateTemplate(moduleName, cubitDir);
   }
 }

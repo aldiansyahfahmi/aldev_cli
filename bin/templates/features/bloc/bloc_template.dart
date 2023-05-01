@@ -2,17 +2,24 @@ import 'dart:io';
 
 import '../../../extensions/to_pascal_case.dart';
 
-stateTemplate(String moduleName, Directory dir) {
+blocTemplate(String moduleName, Directory dir) {
   String template = """
-class ExampleState extends Equatable {
-  final ViewData<ExampleDataEntity> exampleState;
+import './import_name_event.dart';
+import './import_name_state.dart';
 
-  const ExampleState({
-    required this.exampleState,
-  });
+class ExampleBloc
+    extends Bloc<ExampleEvent, ExampleState> {
+  final ExampleUseCase useCase;
 
-  @override
-  List<Object?> get props => [exampleState];
+  ExampleBloc({
+    required this.useCase,
+  }) : super(
+          ExampleState(
+            state: ViewData.initial(),
+          ),
+        ) {
+    on<Example>((event, emit) async {});
+  }
 }
 """;
 
@@ -23,7 +30,7 @@ class ExampleState extends Equatable {
   template = template.replaceAll("example", variableName);
   template = template.replaceAll("import_name", lowerCaseWithUnderscore);
 
-  var file = File('${dir.path}/${moduleName}_state.dart');
+  var file = File('${dir.path}/${moduleName}_bloc.dart');
   File(file.path).createSync();
   file.writeAsStringSync(template);
 }

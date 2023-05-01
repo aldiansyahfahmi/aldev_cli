@@ -3,19 +3,18 @@ import 'dart:io';
 import '../../extensions/to_pascal_case.dart';
 
 repositoryImplTemplate(String moduleName, Directory dir) {
-  String className = moduleName.toPascalCase();
   String template = """
-import 'package:$moduleName/domain/repository/${moduleName}_repository.dart';
-import 'package:$moduleName/data/datasource/local/${moduleName}_local_datasource.dart';
-import 'package:$moduleName/data/datasource/remote/${moduleName}_remote_datasource.dart';
-import 'package:$moduleName/data/mapper/${moduleName}_mapper.dart';
+import '../../domain/repository/import_name_repository.dart';
+import '../datasource/local/import_name_local_datasource.dart';
+import '../datasource/remote/import_name_remote_datasource.dart';
+import '../mapper/import_name_mapper.dart';
 
-class ${className}RepositoryImpl implements ${className}Repository{
-  final ${className}LocalDataSources localDataSources;
-  final ${className}RemoteDataSource remoteDataSource;
-  final ${className}Mapper mapper;
+class ExampleRepositoryImpl implements ExampleRepository{
+  final ExampleLocalDataSource localDataSources;
+  final ExampleRemoteDataSource remoteDataSource;
+  final ExampleMapper mapper;
 
-  ${className}RepositoryImpl({
+  ExampleRepositoryImpl({
     required this.localDataSources,
     required this.remoteDataSource,
     required this.mapper,
@@ -23,6 +22,13 @@ class ${className}RepositoryImpl implements ${className}Repository{
 
 }
 """;
+
+  String className = moduleName.toPascalCase();
+  String variableName = moduleName.toCamelCase();
+  String lowerCaseWithUnderscore = moduleName.toLowerCaseWithUnderscore();
+  template = template.replaceAll("Example", className);
+  template = template.replaceAll("example", variableName);
+  template = template.replaceAll("import_name", lowerCaseWithUnderscore);
 
   var file = File('${dir.path}/${moduleName}_repository_impl.dart');
   File(file.path).createSync();

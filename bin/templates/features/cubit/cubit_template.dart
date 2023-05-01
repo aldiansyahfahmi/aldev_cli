@@ -3,16 +3,24 @@ import 'dart:io';
 import '../../../extensions/to_pascal_case.dart';
 
 cubitTemplate(String moduleName, Directory dir) {
-  String className = moduleName.toPascalCase();
   String template = """
-class ${className}Cubit extends Cubit<${className}State> {
-  final YourUseCase useCase;
+import '../import_name_bloc/import_name_state.dart';
 
-  ${className}Cubit({required this.usecase}) 
-      : super(${className}State(${moduleName}State: ViewData.initial()));
+class ExampleCubit extends Cubit<ExampleState> {
+  final ExampleUseCase exampleUseCase;
+
+  ExampleCubit({required this.exampleUseCase}) 
+      : super(ExampleState(exampleState: ViewData.initial()));
 }
 
 """;
+
+  String className = moduleName.toPascalCase();
+  String variableName = moduleName.toCamelCase();
+  String lowerCaseWithUnderscore = moduleName.toLowerCaseWithUnderscore();
+  template = template.replaceAll("Example", className);
+  template = template.replaceAll("example", variableName);
+  template = template.replaceAll("import_name", lowerCaseWithUnderscore);
 
   var file = File('${dir.path}/${moduleName}_cubit.dart');
   File(file.path).createSync();

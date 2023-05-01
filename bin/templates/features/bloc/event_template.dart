@@ -1,24 +1,21 @@
 import 'dart:io';
 
-import '../../extensions/to_pascal_case.dart';
+import '../../../extensions/to_pascal_case.dart';
 
-uiTemplate(String moduleName, Directory dir) {
+eventTemplate(String moduleName, Directory dir) {
   String template = """
-import 'package:flutter/material.dart';
-
-class ExampleScreen extends StatelessWidget {
-  const ExampleScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('ExampleScreen'),
-      ),
-    );
-  }
+abstract class ExampleEvent extends Equatable {
+  const ExampleEvent();
 }
 
+class Example extends ExampleEvent {
+  final ExampleRequestEntity exampleRequestEntity;
+
+  const Example({required this.exampleRequestEntity});
+
+  @override
+  List<Object?> get props => [exampleRequestEntity];
+}
 """;
 
   String className = moduleName.toPascalCase();
@@ -28,7 +25,7 @@ class ExampleScreen extends StatelessWidget {
   template = template.replaceAll("example", variableName);
   template = template.replaceAll("import_name", lowerCaseWithUnderscore);
 
-  var file = File('${dir.path}/${moduleName}_screen.dart');
+  var file = File('${dir.path}/${moduleName}_event.dart');
   File(file.path).createSync();
   file.writeAsStringSync(template);
 }
