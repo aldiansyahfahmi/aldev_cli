@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../extensions/to_pascal_case.dart';
+import '../../extensions/to_pascal_case.dart';
 
 diTemplate(String moduleName, Directory dir) {
   String className = moduleName.toPascalCase();

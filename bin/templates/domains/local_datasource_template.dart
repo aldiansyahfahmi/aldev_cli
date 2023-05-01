@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../extensions/to_pascal_case.dart';
+import '../../extensions/to_pascal_case.dart';
 
 localDatasourceTemplate(String moduleName, Directory localDataSourceDir) {
   String className = moduleName.toPascalCase();

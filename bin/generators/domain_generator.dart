@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import '../templates/di_template.dart';
-import '../templates/local_datasource_template.dart';
-import '../templates/mapper_template.dart';
-import '../templates/remote_datasource_template.dart';
-import '../templates/repository_template.dart';
-import '../templates/repository_impl_template.dart';
+import '../templates/domains/di_template.dart';
+import '../templates/domains/local_datasource_template.dart';
+import '../templates/domains/mapper_template.dart';
+import '../templates/domains/remote_datasource_template.dart';
+import '../templates/domains/repository_impl_template.dart';
+import '../templates/domains/repository_template.dart';
 
 class DomainGenerator {
   static generate(String value) async {

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../extensions/to_pascal_case.dart';
+import '../../extensions/to_pascal_case.dart';
 
 mapperTemplate(String moduleName, Directory mapperDir) {
   String className = moduleName.toPascalCase();
