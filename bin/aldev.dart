@@ -1,3 +1,4 @@
+import 'generators/cubit_generator.dart';
 import 'generators/domain_generator.dart';
 import 'generators/feature_generator.dart';
 
@@ -12,6 +13,10 @@ void main(List<String> arguments) {
     case 'feature':
       FeatureGenerator.generate(value);
       break;
+    case 'cubit':
+      CubitGenerator.generate(value);
+      break;
     default:
+      print('$command: command not found');
   }
 }
