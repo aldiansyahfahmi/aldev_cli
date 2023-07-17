@@ -1,24 +1,34 @@
 import 'generators/bloc_generator.dart';
 import 'generators/cubit_generator.dart';
 import 'generators/domain_generator.dart';
-import 'generators/feature_generator.dart';
+import 'generators/presentation_generator.dart';
+import 'generators/init_generator.dart';
 
 void main(List<String> arguments) {
+  print(arguments);
   var command = arguments[0];
-  var value = arguments[1];
+  var value = '';
+  if (arguments.length > 1) {
+    value = arguments[1];
+  }
 
   switch (command) {
+    case 'init':
+      InitGenerator.generate();
+      break;
     case 'domain':
       DomainGenerator.generate(value);
       break;
-    case 'feature':
-      FeatureGenerator.generate(value);
+    case 'presentation':
+      PresentationGenerator.generate(value);
       break;
     case 'cubit':
-      CubitGenerator.generate(value);
+      var cubitName = arguments[2];
+      CubitGenerator.generate(value, cubitName);
       break;
     case 'bloc':
-      BlocGenerator.generate(value);
+      var blocName = arguments[2];
+      BlocGenerator.generate(value, blocName);
       break;
     default:
       print('$command: command not found');

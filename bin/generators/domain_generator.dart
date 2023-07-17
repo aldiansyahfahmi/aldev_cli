@@ -9,8 +9,6 @@ import '../templates/domains/repository_template.dart';
 
 class DomainGenerator {
   static generate(String value) async {
-    String moduleName = value.split('/')[0];
-
     // DATA
     var remoteDataSourceDir = Directory('./lib/data/datasource/remote/');
     var localDataSourceDir = Directory('./lib/data/datasource/local/');
@@ -42,11 +40,11 @@ class DomainGenerator {
     repositoryDir.createSync(recursive: true);
     usecaseDir.createSync(recursive: true);
 
-    remoteDataSourceTemplate(moduleName, remoteDataSourceDir);
-    localDatasourceTemplate(moduleName, localDataSourceDir);
-    mapperTemplate(moduleName, mapperDir);
-    repositoryImplTemplate(moduleName, repositoryImplDir);
-    diTemplate(moduleName, diDir);
-    repositoryTemplate(moduleName, repositoryDir);
+    remoteDataSourceTemplate(value, remoteDataSourceDir);
+    localDatasourceTemplate(value, localDataSourceDir);
+    mapperTemplate(value, mapperDir);
+    repositoryImplTemplate(value, repositoryImplDir);
+    diTemplate(value, diDir);
+    repositoryTemplate(value, repositoryDir);
   }
 }
