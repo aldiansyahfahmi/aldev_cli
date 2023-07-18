@@ -1,6 +1,6 @@
 extension StringExtension on String {
   String toPascalCase() {
-    var words = split(' ');
+    var words = split('_');
     var pascalCase = '';
     for (var word in words) {
       pascalCase += word[0].toUpperCase() + word.substring(1);
@@ -9,7 +9,7 @@ extension StringExtension on String {
   }
 
   String toCamelCase() {
-    var words = split(' ');
+    var words = split('_');
     var result = '';
     for (var i = 0; i < words.length; i++) {
       if (i == 0) {

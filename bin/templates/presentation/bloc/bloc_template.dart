@@ -4,18 +4,17 @@ import '../../../extensions/to_pascal_case.dart';
 
 blocTemplate(String moduleName, Directory dir) {
   String template = """
+import 'package:bloc/bloc.dart';
+import '../../../../shared_libraries/utils/state/view_data_state.dart';
 import './import_name_event.dart';
 import './import_name_state.dart';
 
 class ExampleBloc
     extends Bloc<ExampleEvent, ExampleState> {
-  final ExampleUseCase useCase;
 
-  ExampleBloc({
-    required this.useCase,
-  }) : super(
+  ExampleBloc() : super(
           ExampleState(
-            state: ViewData.initial(),
+            exampleState: ViewData.initial(),
           ),
         ) {
     on<Example>((event, emit) async {});

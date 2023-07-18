@@ -4,8 +4,11 @@ import '../../../extensions/to_pascal_case.dart';
 
 stateTemplate(String moduleName, Directory dir) {
   String template = """
+import 'package:equatable/equatable.dart';
+import '../../../../shared_libraries/utils/state/view_data_state.dart';
+
 class ExampleState extends Equatable {
-  final ViewData<ExampleDataEntity> exampleState;
+  final ViewData<ExampleData> exampleState;
 
   const ExampleState({
     required this.exampleState,

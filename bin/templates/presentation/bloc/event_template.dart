@@ -4,17 +4,19 @@ import '../../../extensions/to_pascal_case.dart';
 
 eventTemplate(String moduleName, Directory dir) {
   String template = """
+import 'package:equatable/equatable.dart';
+
 abstract class ExampleEvent extends Equatable {
   const ExampleEvent();
 }
 
 class Example extends ExampleEvent {
-  final ExampleRequestEntity exampleRequestEntity;
+  final ExampleRequestData exampleRequestData;
 
-  const Example({required this.exampleRequestEntity});
+  const Example({required this.exampleRequestData});
 
   @override
-  List<Object?> get props => [exampleRequestEntity];
+  List<Object?> get props => [exampleRequestData];
 }
 """;
 

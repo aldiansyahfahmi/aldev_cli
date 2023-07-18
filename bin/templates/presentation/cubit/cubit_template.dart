@@ -4,12 +4,14 @@ import '../../../extensions/to_pascal_case.dart';
 
 cubitTemplate(String moduleName, Directory dir) {
   String template = """
-import '../import_name_bloc/import_name_state.dart';
+import 'package:bloc/bloc.dart';
+import '../../../../shared_libraries/utils/state/view_data_state.dart';
+import 'import_name_state.dart';
 
 class ExampleCubit extends Cubit<ExampleState> {
-  final ExampleUseCase exampleUseCase;
+  final ExampleRepository exampleRepository;
 
-  ExampleCubit({required this.exampleUseCase}) 
+  ExampleCubit({required this.exampleRepository}) 
       : super(ExampleState(exampleState: ViewData.initial()));
 }
 

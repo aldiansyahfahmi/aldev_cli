@@ -33,7 +33,12 @@ void main(List<String> arguments) {
       }
       break;
     case 'presentation':
-      PresentationGenerator.generate(value);
+      if (arguments.length > 2) {
+        var presentationName = arguments[2];
+        PresentationGenerator.generate(value, presentationName);
+      } else {
+        PresentationGenerator.generate(value, '');
+      }
       break;
     case 'cubit':
       var cubitName = arguments[2];
