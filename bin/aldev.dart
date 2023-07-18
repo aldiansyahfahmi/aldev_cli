@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'generators/bloc_generator.dart';
 import 'generators/cubit_generator.dart';
 import 'generators/domain_generator.dart';
@@ -13,7 +15,14 @@ void main(List<String> arguments) {
 
   switch (command) {
     case 'init':
-      InitGenerator.generate();
+      stdout.write('Anda yakin ingin menjalankan ini? (Y/N) : ');
+      String input = stdin.readLineSync()?.toUpperCase() ?? '';
+      if (input == 'Y') {
+        InitGenerator.generate();
+        print('Selesai');
+      } else {
+        print('Dibatalkan');
+      }
       break;
     case 'domain':
       var domainName = arguments[2];
