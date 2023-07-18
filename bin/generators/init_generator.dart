@@ -10,6 +10,7 @@ import '../templates/shared_libraries/utils/navigation/navigation_helper.dart';
 import '../templates/shared_libraries/utils/navigation/router/app_routes.dart';
 import '../templates/shared_libraries/utils/navigation/router/home_router.dart';
 import '../templates/shared_libraries/utils/setup/app_setup.dart';
+import '../templates/shared_libraries/utils/state/view_data_state.dart';
 
 class InitGenerator {
   static generate() async {
@@ -54,6 +55,8 @@ class InitGenerator {
         Directory('./lib/shared_libraries/utils/navigation/argument/');
     var setupSharedLibrariesDir =
         Directory('./lib/shared_libraries/utils/setup/');
+    var stateSharedLibrariesDir =
+        Directory('./lib/shared_libraries/utils/state/');
 
     componentSharedLibrariesDir.createSync(recursive: true);
     coreSharedLibrariesDir.createSync(recursive: true);
@@ -64,6 +67,7 @@ class InitGenerator {
     navigationRouterSharedLibrariesDir.createSync(recursive: true);
     navigationArgumentSharedLibrariesDir.createSync(recursive: true);
     setupSharedLibrariesDir.createSync(recursive: true);
+    stateSharedLibrariesDir.createSync(recursive: true);
 
     apiInterceptors(coreSharedLibrariesDir);
     dioHandler(coreSharedLibrariesDir);
@@ -74,5 +78,6 @@ class InitGenerator {
     exception(errorSharedLibrariesDir);
     failureResponse(errorSharedLibrariesDir);
     appSetup(setupSharedLibrariesDir);
+    viewDataState(stateSharedLibrariesDir);
   }
 }
