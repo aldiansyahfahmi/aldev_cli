@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import '../directory/directory.dart';
 import '../templates/di/dependency_injections.dart';
 import '../templates/launcher/main_dev.dart';
 import '../templates/launcher/main_prod.dart';
@@ -38,12 +39,12 @@ class InitGenerator {
     mainProd(launcherDir);
 
     // DOMAIN
-    var remoteDataSourceDir = Directory('./lib/app/domain/datasource/remote/');
-    var localDataSourceDir = Directory('./lib/app/domain/datasource/local/');
-    var responseModelDir = Directory('./lib/app/domain/models/response/');
-    var bodyModelDir = Directory('./lib/app/domain/models/body/');
-    var remoteRepositoryDir = Directory('./lib/app/domain/repository/remote/');
-    var localRepositoryDir = Directory('./lib/app/domain/repository/local/');
+    var remoteDataSourceDir = Directory('$domainDir/datasource/remote/');
+    var localDataSourceDir = Directory('$domainDir/datasource/local/');
+    var responseModelDir = Directory('$domainDir/models/response/');
+    var bodyModelDir = Directory('$domainDir/models/body/');
+    var remoteRepositoryDir = Directory('$domainDir/repository/remote/');
+    var localRepositoryDir = Directory('$domainDir/repository/local/');
 
     remoteDataSourceDir.createSync(recursive: true);
     localDataSourceDir.createSync(recursive: true);
@@ -53,8 +54,9 @@ class InitGenerator {
     localRepositoryDir.createSync(recursive: true);
 
     // PRESENTATION
-    var blocPresentationDir = Directory('./lib/app/presentation/home/bloc/');
-    var uiPresentationDir = Directory('./lib/app/presentation/home/ui/');
+
+    var blocPresentationDir = Directory('$presentationDir/home/bloc/');
+    var uiPresentationDir = Directory('$presentationDir/home/ui/');
 
     blocPresentationDir.createSync(recursive: true);
     uiPresentationDir.createSync(recursive: true);
@@ -62,26 +64,24 @@ class InitGenerator {
     uiTemplate('home', uiPresentationDir);
 
     // SHARED LIBRARIES
+
     var componentSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/component');
-    var coreSharedLibrariesDir = Directory('./lib/app/shared_libraries/core');
+        Directory('$sharedLibrariesDir/component');
+    var coreSharedLibrariesDir = Directory('$sharedLibrariesDir/core');
     var coreModelsSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/core/models');
-    var utilsSharedLibrariesDir = Directory('./lib/app/shared_libraries/utils');
+        Directory('$sharedLibrariesDir/core/models');
+    var utilsSharedLibrariesDir = Directory('$sharedLibrariesDir/utils');
     var constantsSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/utils/constants');
-    var errorSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/utils/error');
+        Directory('$sharedLibrariesDir/utils/constants');
+    var errorSharedLibrariesDir = Directory('$sharedLibrariesDir/utils/error');
     var navigationSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/utils/navigation/');
+        Directory('$sharedLibrariesDir/utils/navigation/');
     var navigationRouterSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/utils/navigation/router/');
+        Directory('$sharedLibrariesDir/utils/navigation/router/');
     var navigationArgumentSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/utils/navigation/argument/');
-    var setupSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/utils/setup/');
-    var stateSharedLibrariesDir =
-        Directory('./lib/app/shared_libraries/utils/state/');
+        Directory('$sharedLibrariesDir/utils/navigation/argument/');
+    var setupSharedLibrariesDir = Directory('$sharedLibrariesDir/utils/setup/');
+    var stateSharedLibrariesDir = Directory('$sharedLibrariesDir/utils/state/');
 
     componentSharedLibrariesDir.createSync(recursive: true);
     coreSharedLibrariesDir.createSync(recursive: true);

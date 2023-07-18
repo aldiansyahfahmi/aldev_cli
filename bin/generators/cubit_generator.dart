@@ -1,12 +1,12 @@
 import 'dart:io';
 
+import '../directory/directory.dart';
 import '../templates/presentation/cubit/cubit_template.dart';
 import '../templates/presentation/cubit/state_template.dart';
 
 class CubitGenerator {
   static generate(String value, String cubitName) async {
-    var cubitDir =
-        Directory('./lib/app/presentation/$value/bloc/${cubitName}_cubit');
+    var cubitDir = Directory('$presentationDir/$value/bloc/${cubitName}_cubit');
 
     cubitDir.createSync(recursive: true);
 

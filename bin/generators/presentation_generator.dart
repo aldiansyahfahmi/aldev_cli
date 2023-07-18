@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import '../directory/directory.dart';
 import '../templates/presentation/ui_template.dart';
 
 class PresentationGenerator {
@@ -8,12 +9,11 @@ class PresentationGenerator {
     late Directory uiDir;
 
     if (presentationName.isEmpty) {
-      blocDir = Directory('./lib/app/presentation/$value/bloc/');
-      uiDir = Directory('./lib/app/presentation/$value/ui/');
+      blocDir = Directory('$presentationDir/$value/bloc/');
+      uiDir = Directory('$presentationDir/$value/ui/');
     } else {
-      blocDir =
-          Directory('./lib/app/presentation/$value/$presentationName/bloc/');
-      uiDir = Directory('./lib/app/presentation/$value/$presentationName/ui/');
+      blocDir = Directory('$presentationDir/$value/$presentationName/bloc/');
+      uiDir = Directory('$presentationDir/$value/$presentationName/ui/');
     }
 
     blocDir.createSync(recursive: true);
