@@ -8,10 +8,10 @@ import '../templates/domains/remote_repository_template.dart';
 class DomainGenerator {
   static generate(String value, String domainName) async {
     // DATASOURCE
-    var remoteDataSourceDir = Directory('./lib/domain/datasource/remote/');
-    var localDataSourceDir = Directory('./lib/domain/datasource/local/');
-    var remoteRepositoryDir = Directory('./lib/domain/repository/remote/');
-    var localRepositoryDir = Directory('./lib/domain/repository/local/');
+    var remoteDataSourceDir = Directory('./lib/app/domain/datasource/remote/');
+    var localDataSourceDir = Directory('./lib/app/domain/datasource/local/');
+    var remoteRepositoryDir = Directory('./lib/app/domain/repository/remote/');
+    var localRepositoryDir = Directory('./lib/app/domain/repository/local/');
 
     remoteDataSourceDir.createSync(recursive: true);
     localDataSourceDir.createSync(recursive: true);

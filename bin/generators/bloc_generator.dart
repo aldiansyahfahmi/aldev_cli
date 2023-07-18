@@ -7,7 +7,7 @@ import '../templates/presentation/bloc/state_template.dart';
 class BlocGenerator {
   static generate(String value, String folderName) async {
     var blocDir =
-        Directory('./lib/presentation/$value/bloc/${folderName}_bloc');
+        Directory('./lib/app/presentation/$value/bloc/${folderName}_bloc');
 
     blocDir.createSync(recursive: true);
 
