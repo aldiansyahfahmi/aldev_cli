@@ -1,10 +1,10 @@
 import 'dart:io';
 
 import '../directory/directory.dart';
-import '../templates/domains/local_datasource_template.dart';
-import '../templates/domains/local_repository_template.dart';
-import '../templates/domains/remote_datasource_template.dart';
-import '../templates/domains/remote_repository_template.dart';
+import '../templates/standart/domains/local_datasource_template.dart';
+import '../templates/standart/domains/local_repository_template.dart';
+import '../templates/standart/domains/remote_datasource_template.dart';
+import '../templates/standart/domains/remote_repository_template.dart';
 
 class DomainGenerator {
   static generate(String value, String domainName) async {

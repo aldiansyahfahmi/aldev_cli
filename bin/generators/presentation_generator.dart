@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import '../directory/directory.dart';
-import '../templates/presentation/ui_template.dart';
+import '../templates/standart/presentation/ui_template.dart';
 
 class PresentationGenerator {
   static generate(String value, String presentationName) async {
