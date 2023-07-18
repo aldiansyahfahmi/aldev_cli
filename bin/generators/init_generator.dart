@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import '../templates/presentation/ui_template.dart';
+import '../templates/shared_libraries/core/models/api_response.dart';
 import '../templates/shared_libraries/utils/constants/app_constants.dart';
 import '../templates/shared_libraries/core/api_interceptors.dart';
 import '../templates/shared_libraries/core/dio_handler.dart';
@@ -42,6 +43,8 @@ class InitGenerator {
     var componentSharedLibrariesDir =
         Directory('./lib/shared_libraries/component');
     var coreSharedLibrariesDir = Directory('./lib/shared_libraries/core');
+    var coreModelsSharedLibrariesDir =
+        Directory('./lib/shared_libraries/core/models');
     var utilsSharedLibrariesDir = Directory('./lib/shared_libraries/utils');
     var constantsSharedLibrariesDir =
         Directory('./lib/shared_libraries/utils/constants');
@@ -68,9 +71,11 @@ class InitGenerator {
     navigationArgumentSharedLibrariesDir.createSync(recursive: true);
     setupSharedLibrariesDir.createSync(recursive: true);
     stateSharedLibrariesDir.createSync(recursive: true);
+    coreModelsSharedLibrariesDir.createSync(recursive: true);
 
     apiInterceptors(coreSharedLibrariesDir);
     dioHandler(coreSharedLibrariesDir);
+    apiResponse(coreModelsSharedLibrariesDir);
     appConstants(constantsSharedLibrariesDir);
     navigationHelper(navigationSharedLibrariesDir);
     appRoutes(navigationRouterSharedLibrariesDir);
