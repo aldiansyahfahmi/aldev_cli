@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../templates/features/ui_template.dart';
+import '../templates/presentation/ui_template.dart';
 import '../templates/shared_libraries/constants/app_constants.dart';
 import '../templates/shared_libraries/core/api_interceptors.dart';
 import '../templates/shared_libraries/core/dio_handler.dart';

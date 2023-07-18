@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import '../templates/features/cubit/cubit_template.dart';
-import '../templates/features/cubit/state_template.dart';
+import '../templates/presentation/cubit/cubit_template.dart';
+import '../templates/presentation/cubit/state_template.dart';
 
 class CubitGenerator {
   static generate(String value, String cubitName) async {

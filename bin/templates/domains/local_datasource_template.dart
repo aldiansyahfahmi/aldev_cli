@@ -4,17 +4,15 @@ import '../../extensions/to_pascal_case.dart';
 
 localDatasourceTemplate(String moduleName, Directory dir) {
   String template = """
-import 'package:dependencies/shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../../shared_libraries/utils/constants/app_constants.dart';
 
 abstract class ExampleLocalDataSource {
-  const ExampleLocalDataSource();
 
 }
 
 class ExampleLocalDataSourceImpl implements ExampleLocalDataSource {
-  final SharedPreferences sharedPreferences;
-
-  ExampleLocalDataSourceImpl({required this.sharedPreferences});
+  final SharedPreferences sharedPreferences = sl();
 
 }
 """;

@@ -2,6 +2,10 @@ import 'dart:io';
 
 appConstants(Directory dir) {
   String template = """
+import 'package:get_it/get_it.dart';
+
+final sl = GetIt.instance;
+
 class AppConstants {
   const AppConstants();
 

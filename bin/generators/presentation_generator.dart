@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import '../templates/features/ui_template.dart';
+import '../templates/presentation/ui_template.dart';
 
 class PresentationGenerator {
   static generate(String value) async {

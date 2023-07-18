@@ -2,32 +2,20 @@ import 'dart:io';
 
 import '../../extensions/to_pascal_case.dart';
 
-diTemplate(String moduleName, Directory dir) {
+localRepositoryTemplate(String moduleName, Directory dir) {
   String template = """
-class ExampleDependency {
-  ExampleDependency() {
-    _registerDataSources();
-    _registerMapper();
-    _registerRepository();
-    _registerUseCases();
-  }
+import '../../datasource/local/example_local_datasource.dart';
 
-  void _registerDataSources() {
+abstract class ExampleLocalRepository {
 
-  }
-
-  void _registerMapper() {
-
-  }
-
-  void _registerRepository() {
-
-  }
-
-  void _registerUseCases() {
-
-  }
 }
+
+class ExampleLocalRepositoryImpl implements ExampleLocalRepository {
+  final ExampleLocalDataSource exampleLocalDataSource = ExampleLocalDataSourceImpl();
+  
+}
+
+
 """;
 
   String className = moduleName.toPascalCase();
@@ -37,7 +25,7 @@ class ExampleDependency {
   template = template.replaceAll("example", variableName);
   template = template.replaceAll("import_name", lowerCaseWithUnderscore);
 
-  var file = File('${dir.path}/${moduleName}_dependency.dart');
+  var file = File('${dir.path}/${moduleName}_local_repository.dart');
   File(file.path).createSync();
   file.writeAsStringSync(template);
 }

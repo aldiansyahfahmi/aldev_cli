@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import '../templates/features/bloc/bloc_template.dart';
-import '../templates/features/bloc/event_template.dart';
-import '../templates/features/bloc/state_template.dart';
+import '../templates/presentation/bloc/bloc_template.dart';
+import '../templates/presentation/bloc/event_template.dart';
+import '../templates/presentation/bloc/state_template.dart';
 
 class BlocGenerator {
   static generate(String value, String folderName) async {

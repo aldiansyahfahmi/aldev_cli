@@ -4,19 +4,17 @@ import '../../extensions/to_pascal_case.dart';
 
 remoteDataSourceTemplate(String moduleName, Directory dir) {
   String template = """
-import 'package:dependencies/dio/dio.dart';
+import 'package:dio/dio.dart';
+import '../../../shared_libraries/utils/constants/app_constants.dart';
 
 abstract class ExampleRemoteDataSource {
-  const ExampleRemoteDataSource();
 
 }
 
 class ExampleRemoteDataSourceImpl implements ExampleRemoteDataSource {
-  final Dio dio;
-
-  ExampleRemoteDataSourceImpl({required this.dio});
-
+  final Dio dio = sl();
 }
+
 """;
 
   String className = moduleName.toPascalCase();

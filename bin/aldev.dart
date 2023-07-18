@@ -5,7 +5,6 @@ import 'generators/presentation_generator.dart';
 import 'generators/init_generator.dart';
 
 void main(List<String> arguments) {
-  print(arguments);
   var command = arguments[0];
   var value = '';
   if (arguments.length > 1) {
@@ -17,7 +16,12 @@ void main(List<String> arguments) {
       InitGenerator.generate();
       break;
     case 'domain':
-      DomainGenerator.generate(value);
+      var domainName = arguments[2];
+      if (value == 'remote' || value == 'local') {
+        DomainGenerator.generate(value, domainName);
+      } else {
+        print('$value: command not found');
+      }
       break;
     case 'presentation':
       PresentationGenerator.generate(value);
